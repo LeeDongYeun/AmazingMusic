@@ -9,7 +9,7 @@ public class start {
 	public static void main(String[] args) {
 		audio_player = new Player();
 		
-		Music music = new Music("0", "test", "sth");
+		Music music = new Music("test", "sth");
 		
 		audio_player.setMusic(music);
 		audio_player.start();

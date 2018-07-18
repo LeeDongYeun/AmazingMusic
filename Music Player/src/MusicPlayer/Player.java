@@ -63,10 +63,11 @@ public class Player extends Thread {
 			
 
 			try {
+				System.out.println("File failure: " + (file == null));
 				in = AudioSystem.getAudioInputStream(file);
 			//Get a music input object
 			} catch (Exception e) {
-				System.out.println(music.getId() + "music id " + music.getPath());
+				System.out.println("Play failed.");
 				return;
 			}
 			//Read the PCM code of the wav file, sample rate information, sampling accuracy information, channel information, and then input the information to the player
@@ -182,9 +183,6 @@ public class Player extends Thread {
 
 	//The UI for seeking button
 	public void SeekPlayer(long time) {
-		if (time < 0 || time > duration) {
-			throw new IllegalArgumentException("seek time not valid: " + time);
-		}
 		seektime = time;
 	}
 	

@@ -7,22 +7,18 @@ package MusicPlayer;
 
 public class Music {
 	
-	private String id;
 	private String name;
 	private String path;
 	
-	public Music (String i, String n, String p) {
-		this.id = i;
+	public Music (String n, String p) {
 		this.name = n;
 		this.path = p;
 	}
 	
-	public String getId() {
-		return id;
-	}
 	public String getName() {
 		return name;
 	}
+	
 	public String getPath() {
 		return path;
 	}
