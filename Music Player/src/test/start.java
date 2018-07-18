@@ -1,6 +1,6 @@
 package test;
 
-import com.service.*;
+import MusicPlayer.*;
 
 public class start {
 
@@ -9,10 +9,7 @@ public class start {
 	public static void main(String[] args) {
 		audio_player = new Player();
 		
-		Music music = new Music();
-		music.setId("0");
-		music.setName("test");
-		music.setPath("/Users/yiboguo/Desktop/Yamaha-V50-Synbass-1-C2.wav");
+		Music music = new Music("0", "test", "sth");
 		
 		audio_player.setMusic(music);
 		audio_player.start();
