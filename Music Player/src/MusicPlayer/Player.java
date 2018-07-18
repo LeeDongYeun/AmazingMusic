@@ -3,14 +3,12 @@
  * Source: https://www.cnblogs.com/xiaolai/p/3189672.html
  * Author: laijiawei
  */
-package com.service;
+package MusicPlayer;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import javax.sound.sampled.*;
-import com.service.Music;
-import org.apache.commons.io.FileUtils;
+import MusicPlayer.Music;
 
 public class Player extends Thread {
 	// make a constructor
@@ -60,19 +58,9 @@ public class Player extends Thread {
 			// File file = new File("http://10.3.80.185/44.wav");
 
 			File file = null;
-			// remote file(backup)
-			if (music.getPath().substring(0, 3).equals("http")) {
-				URL url = new URL(music.getPath());
-				String tDir = System.getProperty("java.io.tmpdir");
-				String path = tDir + "tmp" + ".wav";
-				file = new File(path);
-				file.deleteOnExit();
-				FileUtils.copyURLToFile(url, file);
-			}
-			// local file
-			else {
-				file = new File(music.getPath());
-			}
+			
+			file = new File(music.getPath());
+			
 
 			try {
 				in = AudioSystem.getAudioInputStream(file);
@@ -194,6 +182,9 @@ public class Player extends Thread {
 
 	//The UI for seeking button
 	public void SeekPlayer(long time) {
+		if (time < 0 || time > duration) {
+			throw new IllegalArgumentException("seek time not valid: " + time);
+		}
 		seektime = time;
 	}
 	

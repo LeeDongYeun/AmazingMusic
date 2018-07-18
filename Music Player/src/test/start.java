@@ -12,7 +12,7 @@ public class start {
 		Music music = new Music();
 		music.setId("0");
 		music.setName("test");
-		music.setPath("D:/2.wav");
+		music.setPath("/Users/yiboguo/Desktop/Yamaha-V50-Synbass-1-C2.wav");
 		
 		audio_player.setMusic(music);
 		audio_player.start();
