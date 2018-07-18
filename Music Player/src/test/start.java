@@ -9,7 +9,8 @@ public class start {
 	public static void main(String[] args) {
 		audio_player = new Player();
 		
-		Music music = new Music("test", "sth");
+		String add = "C:\\Users\\yguo3\\Downloads\\Roland-JV-2080-PizzicatoStr-C5.wav";
+		Music music = new Music("test", add);
 		
 		audio_player.setMusic(music);
 		audio_player.start();
