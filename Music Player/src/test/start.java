@@ -9,7 +9,7 @@ public class start {
 	public static void main(String[] args) {
 		audio_player = new Player();
 		
-		Music music = new Music("test", "sth");
+		Music music = new Music("test", "F:\\Yamaha-V50-Metalimba-C2.wav");
 		
 		audio_player.setMusic(music);
 		audio_player.start();
