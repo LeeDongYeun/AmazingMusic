@@ -61,9 +61,12 @@ public class Player extends Thread {
 			
 			file = new File(music.getPath());
 			
-
+			if (!file.exists()) {
+				System.out.println("File not exists.");
+				return;
+			}
+			
 			try {
-				System.out.println("File failure: " + (file == null));
 				in = AudioSystem.getAudioInputStream(file);
 			//Get a music input object
 			} catch (Exception e) {

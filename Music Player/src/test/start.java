@@ -9,7 +9,12 @@ public class start {
 	public static void main(String[] args) {
 		audio_player = new Player();
 		
+<<<<<<< HEAD
 		Music music = new Music("test", "F:\\Yamaha-V50-Metalimba-C2.wav");
+=======
+		String add = "C:\\Users\\yguo3\\Downloads\\Roland-JV-2080-PizzicatoStr-C5.wav";
+		Music music = new Music("test", add);
+>>>>>>> 297520ce6e5800d0caa01f02eade84ab9d786d17
 		
 		audio_player.setMusic(music);
 		audio_player.start();
