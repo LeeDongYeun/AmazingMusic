@@ -1,5 +1,6 @@
 package Server;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -33,9 +34,9 @@ public class CreateServerThread extends Thread {
 		 */
 		
 		try {
-			ObjectInputStream objInStream = new ObjectInputStream(this.clientSocket.getInputStream()); // do I have to use bufferedinputstream?
 			ObjectOutputStream objOutStream = new ObjectOutputStream(this.clientSocket.getOutputStream());
-			
+			ObjectInputStream objInStream = new ObjectInputStream(new BufferedInputStream(this.clientSocket.getInputStream())); 
+			System.out.println("Stream running");
 			/*
 			 *  receive client request from the stream, 
 			 *  give the information to the decoder,
@@ -44,6 +45,7 @@ public class CreateServerThread extends Thread {
 			 */
 			
 			Object userRequest = objInStream.readObject();
+			System.out.println("Received something");
 			Object ob = Decoder.firewall(userRequest); // check if userRequest is linkedlist in firewall
 			objOutStream.writeObject(ob);
 			objOutStream.flush();

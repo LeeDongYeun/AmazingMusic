@@ -1,6 +1,7 @@
 package Server;
 
 import java.io.IOException;
+import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -40,8 +41,8 @@ public class CreateFileServerThread extends Thread {
 		 */
 		
 		try {
-			ObjectInputStream objInStream = new ObjectInputStream(this.clientSocket.getInputStream());
 			ObjectOutputStream objOutStream = new ObjectOutputStream(this.clientSocket.getOutputStream());
+			ObjectInputStream objInStream = new ObjectInputStream(new BufferedInputStream(this.clientSocket.getInputStream()));
 			String signal = "";
 			
 			/*
