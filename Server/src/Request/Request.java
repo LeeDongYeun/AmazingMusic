@@ -12,7 +12,7 @@ import Util.MD5Class;
 
 public class Request {
 	
-	public static String register(String email, String pw) {
+	public static String register(String email, String pw) throws Exception {
 		
 		LinkedList list = new LinkedList();
 		list.add("reg");
@@ -23,7 +23,7 @@ public class Request {
 		return (String) SocketClient.request(list);
 	}
 	
-	public static String login(String email, String pw) {	
+	public static String login(String email, String pw) throws Exception {	
 		
 		LinkedList list = new LinkedList();
 		list.add("lgn");
@@ -34,7 +34,7 @@ public class Request {
 		return (String) SocketClient.request(list);
 	}
 	
-	public static String upload(String uid, String directory) {	
+	public static String upload(String uid, String directory) throws Exception {	
 		
 		/**
 		 * Caution: after user login, you have to verify the uid which is returned by login(), 
@@ -56,16 +56,31 @@ public class Request {
 		File file = new File(directory);
 		if (!file.exists())
 			return "REQ:FILENOTEXIST";
+		/*
+		 * make a unique value of the file for the validating process of the file server.
+		 */
 		md5 = MD5Class.FileMD5Generator(file);
 
 		FileInfo fInfo = new FileInfo(uid, directory.substring(directory.lastIndexOf("\\")+1), md5, directory.substring(directory.lastIndexOf("."))); // Note: need some tests for file extension
 		list.add(fInfo);
+		
+		/*
+		 * start to connect to the server.
+		 */
 		String tmp = (String) SocketClient.request(list);
 		
+		/*
+		 * if the message that the server give is "UPS",
+		 * you can now upload the file to file server.
+		 */
 		if (tmp.equals("UPS")) {
 			LinkedList fileList = new LinkedList();
 			fileList.add("upload");
 			fileList.add(fInfo);
+			
+			/*
+			 * start to connect to the file server.
+			 */
 			Object obj = FileGiveClient.fileGiveRequest(fileList, directory);
 			if (!obj.getClass().equals("String".getClass())) {
 				return "REQ:NOTSTRING";
@@ -76,7 +91,7 @@ public class Request {
 		return tmp;
 	}
 	
-	public static Object search(String name) {
+	public static Object search(String name) throws Exception {
 		
 		LinkedList list = new LinkedList();
 		list.add("sch");
