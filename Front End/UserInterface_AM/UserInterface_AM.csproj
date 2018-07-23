@@ -74,12 +74,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Connect.Designer.cs">
-      <DependentUpon>Connect.cs</DependentUpon>
-    </Compile>
     <Compile Include="Edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,9 +118,6 @@
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Connect.resx">
-      <DependentUpon>Connect.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Edit.resx">
       <DependentUpon>Edit.cs</DependentUpon>
     </EmbeddedResource>

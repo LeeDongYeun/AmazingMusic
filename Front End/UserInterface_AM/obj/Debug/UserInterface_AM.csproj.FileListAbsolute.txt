@@ -23,7 +23,6 @@ C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\obj\Debug\AxIntero
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\obj\Debug\UserInterface_AM.csproj.ResolveComReference.cache
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\Interop.WMPLib.dll
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\AxInterop.WMPLib.dll
-C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\obj\Debug\UserInterface_AM.Connect.resources
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\MySql.Data.dll
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\Google.Protobuf.dll
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\MySql.Data.xml

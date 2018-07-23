@@ -24,19 +24,24 @@ namespace UserInterface_AM
             if(textBox1.Text == "")
             {
                 MessageBox.Show("Please enter email address");
+                return;
             }
             else if(textBox2.Text == "")
             {
                 MessageBox.Show("Please enter password");
+                return;
             }
-            else if (Request.Request.register(email, pw).Equals("UPS"))
+
+
+            String rMessage = (Request.Request.register(email, pw));
+            if (rMessage.Equals("UPS"))
             {
                 Owner.Show();
                 Close();
             }
             else
             {
-                MessageBox.Show("Register Failed");
+                MessageBox.Show(rMessage);
             }
          
             //Owner.Show();

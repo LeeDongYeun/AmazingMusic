@@ -43,6 +43,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Window;
             this.label1.Font = new System.Drawing.Font("Bauhaus 93", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(215, 148);
             this.label1.Name = "label1";
@@ -53,8 +54,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.Window;
             this.label2.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(151, 219);
+            this.label2.Location = new System.Drawing.Point(151, 224);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(218, 23);
             this.label2.TabIndex = 3;
@@ -63,8 +65,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.Window;
             this.label3.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(151, 298);
+            this.label3.Location = new System.Drawing.Point(151, 326);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(155, 23);
             this.label3.TabIndex = 4;
@@ -72,7 +75,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 259);
+            this.textBox1.Location = new System.Drawing.Point(155, 269);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(275, 22);
             this.textBox1.TabIndex = 5;
@@ -80,7 +83,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 336);
+            this.textBox2.Location = new System.Drawing.Point(155, 368);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(275, 22);
             this.textBox2.TabIndex = 6;
@@ -88,13 +91,14 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.BlueViolet;
             this.button2.Font = new System.Drawing.Font("Cooper Black", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(191, 397);
+            this.button2.Location = new System.Drawing.Point(206, 421);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(178, 81);
             this.button2.TabIndex = 9;
             this.button2.Text = "Create Account";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox1
@@ -108,8 +112,8 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(3, 12);
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 36);
             this.button1.TabIndex = 12;
@@ -122,6 +126,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(572, 528);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);

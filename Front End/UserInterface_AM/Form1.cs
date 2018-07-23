@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Request;
 
 namespace UserInterface_AM
 {
@@ -34,7 +26,7 @@ namespace UserInterface_AM
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Enter_EmailPassword(object sender, EventArgs e)
            
         {
             if(textBox1.Text == "")
@@ -46,35 +38,37 @@ namespace UserInterface_AM
             {
                 MessageBox.Show("Enter your password");
             }
-            else
+            
+          else
             {
+                
                 MessageBox.Show(eMail + " " + Password);
-                string uid = Request.Request.login(eMail, Password);
-                if (uid.Contains("INVALIDEMAIL"))
+                string message = Request.Request.login(eMail, Password);
+                if (message.Contains("INVALIDEMAIL"))
                 {
                     MessageBox.Show("Invalid email");
                 }
-                else if (uid.Contains("LOGIN:"))
+                else if (message.Contains("LOGIN:"))
                 {
-                    MessageBox.Show("User is not registered or wrong password");
+
+                    MessageBox.Show(message);
                     textBox1.Text = "";
                     textBox2.Text = "";
 
                 }
                 else
                 {
-                    correctUID = uid;
+                    correctUID = message;
                     this.Hide();
                     Main main = new Main();
                     main.Show();
                 }
-
             }
 
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void GoTo_SignUp(object sender, EventArgs e)
         {
             if(sign == null)
             {
@@ -101,6 +95,11 @@ namespace UserInterface_AM
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             Password = textBox2.Text;
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }
