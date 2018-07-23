@@ -1,6 +1,8 @@
-import Testers.FunctionalityTest;
-import Testers.RobustnessTest;
-import Testers.ValidationTest;
+import java.net.Socket;
+
+import Testing_IntegratingServer.FunctionalityTest;
+import Testing_IntegratingServer.RobustnessTest;
+import Testing_IntegratingServer.ValidationTest;
 
 public class SysTest {
 
@@ -18,7 +20,7 @@ public class SysTest {
 		 * FunctionalityTest.java - new Download(~here~); (url part)
 		 */
 		ValidationTest.main(null);
-		//FunctionalityTest.main(null);
+		FunctionalityTest.main(null);
 		//RobustnessTest.main(null);
 	}
 

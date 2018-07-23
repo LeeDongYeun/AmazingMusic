@@ -32,7 +32,8 @@ public class SocketClient {
 		 * Output: Return an object which server sent
 		 */
 		
-		Socket socket =  new Socket("yg-home.site", 18701);
+		Socket socket = new Socket("localhost", 18701);
+		//Socket socket =  new Socket("yg-home.site", 18701);
 		ObjectOutputStream objOutStream = null;
 		ObjectInputStream objInStream = null;
 		Object obj = null;

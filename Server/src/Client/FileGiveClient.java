@@ -20,7 +20,8 @@ public class FileGiveClient {
 		 * Output : String that file server give.
 		 * 
 		 */
-		Socket socket = new Socket("yg-home.site", 18702);
+		Socket socket = new Socket("localhost", 18702);
+		//Socket socket = new Socket("yg-home.site", 18702);
 		ObjectOutputStream objOutStream = null;
 		ObjectInputStream objInStream = null;
 		FileInputStream fileInStream = null;
@@ -34,7 +35,7 @@ public class FileGiveClient {
 			/*
 			 * Open a socket and get connection. Then Send the input linkedlist to server.
 			 */
-			//socket = new Socket("yg-home.site", 18702);
+		
 			
 			objOutStream = new ObjectOutputStream(socket.getOutputStream());
 			objOutStream.writeObject(list);
@@ -62,7 +63,7 @@ public class FileGiveClient {
 				 * get some string from the file server.
 				 */
 				objInStream = new ObjectInputStream(new BufferedInputStream(socket.getInputStream()));
-				result = objInStream.readObject();
+				result = objInStream.readUTF();
 			}
 			else {
 				System.out.println("There isn't a file");

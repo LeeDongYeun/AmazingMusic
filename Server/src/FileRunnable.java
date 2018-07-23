@@ -13,3 +13,15 @@ public class FileRunnable {
 	}
 
 }
+
+
+/*
+ * FileCoreFunction 38, 62, 128, 137
+ * FileGiveClient 23
+ * SocketClient 35
+ * Download 28
+ * CreateFileServerThread 68
+ * SQL 26
+ * 
+ */
+

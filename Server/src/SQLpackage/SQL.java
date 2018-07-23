@@ -9,8 +9,8 @@ public class SQL {
 	String id, pw, dbName; 
 	
 	public SQL() {
-		this.id = "amaMusic";
-		this.pw = "loveCS115.";
+		this.id = "root";//"amaMusic";
+		this.pw = "dl938271";//"loveCS115.";
 		this.dbName = "amazingmusicdb";
 	}
 	
@@ -23,7 +23,8 @@ public class SQL {
 		 */
 		
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://yg-home.site:3306/" + "?verifyServerCertificate=true&useSSL=false"; 
+		String url = "jdbc:mysql://localhost:3306/" + "?verifyServerCertificate=true&useSSL=false"; 
+		//String url = "jdbc:mysql://yg-home.site:3306/" + "?verifyServerCertificate=true&useSSL=false"; 
 		Connection conn;
 		
 		try {

@@ -34,8 +34,9 @@ public class FileCoreFunctions {
 			LinkedList list = new LinkedList();
 			list.add("OK");
 			list.add(flInfo);
- 
-			File directory = new File("/Volumes/Common Volume/Sites/https://yg-home.site/proj/amamusic/audio/temporary");
+			
+			File directory = new File("temporary");
+			//File directory = new File("/Volumes/Common Volume/Sites/yg-home.site/proj/amamusic/audio/temporary");
 			if(!directory.exists()) {
 				directory.mkdir();
 			}
@@ -58,7 +59,8 @@ public class FileCoreFunctions {
 		/*
 		 * get MD5 value of file that client give
 		 */
-		String path = "/Volumes/Common Volume/Sites/https://yg-home.site/proj/amamusic/audio/temporary" + File.separatorChar + flInfo.getFileSerial() +flInfo.getExension();
+		String path = "temporary" + File.separatorChar + flInfo.getFileSerial() +flInfo.getExension();
+		//String path = "/Volumes/Common Volume/Sites/yg-home.site/proj/amamusic/audio/temporary" + File.separatorChar + flInfo.getFileSerial() +flInfo.getExension();
 		File file = new File(path);
 		String md5Value = MD5Class.FileMD5Generator(file);
 		System.out.println(md5Value);
@@ -122,7 +124,8 @@ public class FileCoreFunctions {
 				/*
 				 * if there isn't directory named uid, make it.
 				 */
-				File uidDir = new File("/Volumes/Common Volume/Sites/https://yg-home.site/proj/amamusic/audio/" + flInfo.getUID());
+				File uidDir = new File(flInfo.getUID());
+				//File uidDir = new File("/Volumes/Common Volume/Sites/yg-home.site/proj/amamusic/audio/" + flInfo.getUID());
 				if(!uidDir.exists()) {
 					uidDir.mkdir();
 				}
@@ -130,7 +133,8 @@ public class FileCoreFunctions {
 				/*
 				 * move music from temporary file to uid named file
 				 */
-				String newPath = "/Volumes/Common Volume/Sites/https://yg-home.site/proj/amamusic/audio/" + flInfo.getUID() + File.separatorChar + flInfo.getFileSerial() + flInfo.getExension();
+				String newPath = flInfo.getUID() + File.separatorChar + flInfo.getFileSerial() + flInfo.getExension();
+				//String newPath = "/Volumes/Common Volume/Sites/yg-home.site/proj/amamusic/audio/" + flInfo.getUID() + File.separatorChar + flInfo.getFileSerial() + flInfo.getExension();
 				System.out.println(newPath);
 				Files.move(Paths.get(path), Paths.get(newPath), StandardCopyOption.REPLACE_EXISTING);
 				
