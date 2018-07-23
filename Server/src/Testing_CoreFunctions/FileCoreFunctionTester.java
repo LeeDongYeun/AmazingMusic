@@ -31,6 +31,10 @@ public class FileCoreFunctionTester {
 		
 	}
 	
+	private static boolean validateTest(FileInfo flInfo) {
+		
+	}
+	
 	private static boolean uploadTest(LinkedList ll) {
 		FileInfo flInfo = (FileInfo) ll.end.getInfo();
 		
