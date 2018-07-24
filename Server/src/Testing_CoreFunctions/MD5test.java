@@ -9,14 +9,15 @@ public class MD5test {
 	public static void main(String[] args) {
 		
 		/**
-		 * Purpose: Toy code for a MD5 hash function and MessageDigest class.
+		 * Purpose: Old style(legacy) test code for a MD5 hash function and MessageDigest class.
+		 * 			using println()
 		 * For further info:
 		 * https://en.wikipedia.org/wiki/MD5
 		 * https://en.wikipedia.org/wiki/Md5sum
 		 */
 		
 		try {
-			String originalText = "your tsdfdsfsfdfext here";
+			String originalText = "BTS says: I need you girl";
 			
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			md.reset();
@@ -26,8 +27,8 @@ public class MD5test {
 			BigInteger bigInt = new BigInteger(1,digest);
 			String hashtext = bigInt.toString(16);
 			
-			System.out.println(hashtext);
-			System.out.println(hashtext.length());
+			System.out.println("Hash value should be random-looking: "+hashtext);
+			System.out.println("Character length should be 32: "+hashtext.length());
 			
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();

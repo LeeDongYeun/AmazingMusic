@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 
 import Client.SocketClient;
 import Object.FileInfo;
@@ -41,41 +42,26 @@ public class TesterClient {
 		list.add("reg");
 		user = new User("icho@ucsc.edu", "cofls8680*");
 		list.add(user);
-		System.out.println((String) SocketClient.request(list));
+		String request = (String) SocketClient.request(list);
+		verification(request.equals("REG:USEREXISTS") || request.equals("UPS"));
 		
 		list = new LinkedList();
 		list.add("lgn");
 		user = new User("ich@ucsc.edu", "cofls8680*");
 		list.add(user);
-		verification(((String) SocketClient.request(list)).equals("NOTREGISTERED"));
+		verification(((String) SocketClient.request(list)).equals("LOGIN:NOTREG"));
 		
 		list = new LinkedList();
 		list.add("lgn");
 		user = new User("icho@ucsc.edu", "cofls8680");
 		list.add(user);
-		verification(((String) SocketClient.request(list)).equals("PWINCORRECT"));
+		verification(((String) SocketClient.request(list)).equals("LOGIN:PWINCORRECT"));
 		
 		list = new LinkedList();
 		list.add("lgn");
 		user = new User("icho@ucsc.edu", "cofls8680*");
 		list.add(user);
 		String uid = ((String) SocketClient.request(list));
-		
-		list = new LinkedList();
-		list.add("upl");
-		MessageDigest md;
-		try {
-			String directory = "C:\\Users\\인영\\Desktop\\배두환.txt";
-			md = MessageDigest.getInstance("MD5");
-			md.update(Files.readAllBytes(Paths.get(directory)));
-		    byte[] digest = md.digest();
-		    BigInteger bigInt = new BigInteger(1,digest);		
-			FileInfo fInfo = new FileInfo(uid, directory, bigInt.toString(16), directory.substring(directory.lastIndexOf(".")));
-			list.add(fInfo);
-			verification(((String) SocketClient.request(list)).equals("UPS"));
-		} catch (NoSuchAlgorithmException | IOException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	private static void verification(boolean statement) {

@@ -3,6 +3,7 @@ package Testing_IntegratingServer;
 import Object.LinkedList;
 import Object.SearchResult;
 import Request.Request;
+import SQLpackage.Database;
 
 public class FunctionalityTest {
 
@@ -18,14 +19,26 @@ public class FunctionalityTest {
 		 * 2. Login
 		 * 3. Music uploading
 		 * 4. Music downloading
+		 * 5. All-in-one
 		 */
+		registerTest();
+		loginTest();
 		musicUploadingTest();
+		musicDownloadingTest();
+		allInOneTest();
+
+		System.out.println("All tests pass. Done.");
 	}
 
 	private static void registerTest() throws Exception {
 		System.out.println("Register test");
+		// remove the user info if there is existing user.
+		String initialize;
+		Database db = new Database();
 		
 		for (int i=0; i<emails.length; i++) {
+			initialize = "delete from `amazingmusicdb`.`userInfo` where `emailUsername`='" + emails[i] + "' and `emailDomain`='" + "default" + "';";
+			db.updateDB(initialize);
 			if (!Request.register(emails[i], "default").equals("UPS")) {
 				printError(0x01, emails[i], "default");
 				return;
@@ -33,7 +46,6 @@ public class FunctionalityTest {
 		}
 		
 		System.out.println("Register test pass. Continues.\n");
-		loginTest();
 	}
 	
 	private static void loginTest() throws Exception {
@@ -41,6 +53,12 @@ public class FunctionalityTest {
 		
 		for (int i=0; i<emails.length; i++) {
 			uids[i] = Request.login(emails[i], "default");
+			if (uids[i].equals("LOGIN:NOTREG")) {
+				if (!Request.register(emails[i], "default").equals("UPS")) {
+					return;
+				}
+				uids[i] = Request.login(emails[i], "default");
+			}
 			if (uids[i].contains("LOGIN:")) { // Every error message contains "LOGIN:" string.
 				printError(0x02, emails[i], "default");
 				return;
@@ -48,7 +66,6 @@ public class FunctionalityTest {
 		}
 		
 		System.out.println("Login test pass. Continues.\n");
-		musicUploadingTest();
 	}
 	
 	private static void musicUploadingTest() throws Exception {
@@ -62,7 +79,6 @@ public class FunctionalityTest {
 		}
 		
 		System.out.println("Music uploading test pass. Continues.\n");
-		musicDownloadingTest();
 	}
 	
 	private static void musicDownloadingTest() throws Exception {
@@ -77,9 +93,9 @@ public class FunctionalityTest {
 		/*
 		 * Request to search all files whose filename contains the String "Rossette"
 		 */
-		llObj = Request.search("거미");
+		llObj = Request.search("Everything");
 		if (llObj.getClass().equals("".getClass())) {
-			printError(0x04, "거미");
+			printError(0x04, "Everything");
 			return;
 		}
 		ll = (LinkedList) llObj;
@@ -89,7 +105,7 @@ public class FunctionalityTest {
 			srObj = ll.head.getInfo();
 			sr = (SearchResult)srObj;
 			url = sr.getURL();
-			filename = "거미" + i;
+			filename = "Everything" + i;
 			if (!Request.download(url,filename).equals("SUCCEED")) {
 				printError(0x04, filename);
 				return;
@@ -98,10 +114,9 @@ public class FunctionalityTest {
 		}
 		
 		System.out.println("Music downloading test pass. Continues.\n");
-		System.out.println("All tests pass. Done.");
 	}
 	
-	private static void musicDownloadingTest2() throws Exception {
+	private static void allInOneTest() throws Exception {
 		System.out.println("Music downloading test 2");
 		
 		Object llObj, srObj;
