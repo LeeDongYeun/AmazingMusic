@@ -1,15 +1,19 @@
 package Testing_CoreFunctions;
 
+import java.io.File;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Random;
 
 
 import Object.LinkedList;
 import Object.FileInfo;
 import API.FileCoreFunctions;
+import SQLpackage.Database;
 
 public class FileCoreFunctionTester {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		LinkedList list = new LinkedList();
 		FileInfo flInfo = null;
 		
@@ -29,10 +33,94 @@ public class FileCoreFunctionTester {
 		list = linkedListGenerator(flInfo);
 		verification(uploadTest(list));
 		
+		
+		flInfo = fileInfoGenerator();
+		verification(validateTest(flInfo));
+		
 	}
 	
-	private static boolean validateTest(FileInfo flInfo) {
+	private static boolean validateTest(FileInfo flInfo) throws SQLException {
+		Database db = null;
+		ResultSet rs = null;
 		
+		String path = "temporary" + File.separatorChar + flInfo.getFileSerial() +flInfo.getExension();
+		String output = FileCoreFunctions.validate(flInfo);
+		File music = new File(path);
+		
+		if(output =="") {
+			System.out.println("Exception occured in validate function");
+			return false;
+		}
+		else if(output == "VALIDATE FAIL") {
+			System.out.println("Case : VALIDATE FAIL");
+			db = new Database();
+			rs = db.readDB("select MD5 from `amazingmusicdb`.`waitingfile` where MD5='" + flInfo.getMD5() + "'");
+			
+			if(!rs.next()) {
+				System.out.println("Waiting file DB clear");
+				
+				if(!music.exists()) {
+					System.out.println("File has been removed clearly");
+					return true;
+				}
+				else {
+					System.out.println("File is still there");
+					return false;
+				}
+			}
+			else {
+				System.out.println("Waiting file DB is not clear");
+				return false;
+			}
+		}
+		else if(output == "VALIDATE SUCCESS") {
+			System.out.println("Case : VALIDATE SUCCESS");
+			db = new Database();
+			rs = db.readDB("select MD5 from `amazingmusicdb`.`waitingfile` where MD5='" + flInfo.getMD5() + "'");
+			
+			if(!rs.next()) {
+				System.out.println("Waiting file DB clear");
+				rs = db.readDB("select fileSerial from `amazingmusicdb`.`postfile` where fileSerial='" + flInfo.getFileSerial() + "'");
+				
+				if(rs.next()) {
+					System.out.println("There is a file DB in the post file DB");
+					
+					if(!music.exists()) {
+						System.out.println("File has been removed clearly");
+						music = new File(flInfo.getUID() + File.separatorChar + flInfo.getFileSerial() + flInfo.getExension());
+						
+						if(music.exists()) {
+							System.out.println("File has been moved to new path");
+							return true;
+						}
+						
+						else {
+							System.out.println("File has not been moved to new path");
+							return false;
+						}
+					}
+					
+					else {
+						System.out.println("File is still there");
+						return false;
+					}
+				}
+				
+				else {
+					System.out.println("There is no file DB in the post file DB");
+					return false;
+				}
+			}
+			
+			else {
+				System.out.println("Waiting file DB is not clear");
+				return false;
+			}
+		}
+		else {
+			System.out.println("Not matching output of function validate");
+			return false;
+		}
 	}
 	
 	private static boolean uploadTest(LinkedList ll) {
