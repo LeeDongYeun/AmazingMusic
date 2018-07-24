@@ -154,9 +154,16 @@ public class CoreFunctions {
 			/*
 			 * adding file information to the database 'waiting file'. 
 			 */
-			String result = db.updateDB("insert into `amazingmusicdb`.`waitingfile` (MD5, fileSerial, uid, oriName) "
-					+"values ('"+fInfo.getMD5()+"', '"+fInfo.getFileSerial()+"', '"+fInfo.getUID()+"', '"+oriName+"')"
-							+ "WHERE NOT EXISTS (select fileSerial from `amazingmusicdb`.`waitingfile` WHERE fileSerial='"+ fInfo.getFileSerial() +"');");
+			rs = db.readDB("select fileSerial from `amazingmusicdb`.`waitingfile` where fileSerial='" + fInfo.getFileSerial() + "'");
+			String result = "";
+			if(rs.next()) {
+				System.out.println("There is a file DB in the waiting file DB");
+				result = "UPS";
+			}
+			else {
+				result = db.updateDB("insert into `amazingmusicdb`.`waitingfile` (MD5, fileSerial, uid, oriName) "
+						+"values ('"+fInfo.getMD5()+"', '"+fInfo.getFileSerial()+"', '"+fInfo.getUID()+"', '"+oriName+"');");
+			}
 			if (result.equals("UPS")) {
 				return "UPS";
 			}
