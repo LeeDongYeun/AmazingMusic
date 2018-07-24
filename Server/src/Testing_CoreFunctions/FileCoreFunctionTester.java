@@ -169,8 +169,9 @@ public class FileCoreFunctionTester {
         System.out.println("Adf");
 
 
-		String result = db.updateDB("insert into `amazingmusicdb`.`waitingfile` (MD5, fileSerial, uid, oriName) "
-				+"values ('"+flInfo.getMD5()+"', '"+flInfo.getFileSerial()+"', '"+flInfo.getUID()+"', '"+flInfo.getOriName()+"')");
+        String result = db.updateDB("insert into `amazingmusicdb`.`waitingfile` (MD5, fileSerial, uid, oriName) "
+				+"values ('"+flInfo.getMD5()+"', '"+flInfo.getFileSerial()+"', '"+flInfo.getUID()+"', '"+flInfo.getOriName()+"')"
+						+ "WHERE NOT EXISTS (select fileSerial from `amazingmusicdb`.`waitingfile` WHERE fileSerial='"+ flInfo.getFileSerial() +"');");
 		
 	}
 	

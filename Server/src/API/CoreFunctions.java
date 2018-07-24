@@ -155,7 +155,8 @@ public class CoreFunctions {
 			 * adding file information to the database 'waiting file'. 
 			 */
 			String result = db.updateDB("insert into `amazingmusicdb`.`waitingfile` (MD5, fileSerial, uid, oriName) "
-					+"values ('"+fInfo.getMD5()+"', '"+fInfo.getFileSerial()+"', '"+fInfo.getUID()+"', '"+oriName+"')");
+					+"values ('"+fInfo.getMD5()+"', '"+fInfo.getFileSerial()+"', '"+fInfo.getUID()+"', '"+oriName+"')"
+							+ "WHERE NOT EXISTS (select fileSerial from `amazingmusicdb`.`waitingfile` WHERE fileSerial='"+ fInfo.getFileSerial() +"');");
 			if (result.equals("UPS")) {
 				return "UPS";
 			}
