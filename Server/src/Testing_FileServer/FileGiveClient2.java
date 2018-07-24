@@ -1,10 +1,14 @@
-package FileServerTester;
+package Testing_FileServer;
 
 import java.net.Socket;
-//import java.io.IOException;
 import java.io.*;
 
-public class FileGiveClient {
+import Object.LinkedList;
+import Object.FileInfo;
+
+//import java.io.IOException;
+
+public class FileGiveClient2 {
 	
 	//@SuppressWarnings("finally")
 	public static void fileGive(String filename) {
@@ -13,6 +17,7 @@ public class FileGiveClient {
 		FileInputStream fileInStream = null;
 		BufferedInputStream bufFileInStream = null;
 		DataInputStream dtaInStream = null;
+		ObjectOutputStream objOutStream = null;
 		File file = null;
 		
 		try {
@@ -20,22 +25,15 @@ public class FileGiveClient {
 			
 			file = new File(filename);
 			if(file.exists()) {
-		
-				byte[] filebyte = new byte[(int) file.length()];
 				
-				fileInStream = new FileInputStream(file);
-				bufFileInStream = new BufferedInputStream(fileInStream);
-				dtaInStream = new DataInputStream(bufFileInStream);
+				LinkedList list = new LinkedList();
+				FileInfo fileinfo = new FileInfo("DongYeun", filename, "111", "txt");
+				list.add("upload");
+				list.add(fileinfo);
 				
-				dtaInStream.readFully(filebyte, 0, filebyte.length);
-				
-				dtaOutStream = new DataOutputStream(socket.getOutputStream());
-				
-				//dtaOutStream.writeInt(1);
-				dtaOutStream.writeUTF("DongYeun");
-				dtaOutStream.writeUTF(file.getName());
-				dtaOutStream.write(filebyte, 0, filebyte.length);
-				dtaOutStream.flush();
+				objOutStream = new ObjectOutputStream(socket.getOutputStream());
+				objOutStream.writeObject(list);
+				objOutStream.flush();
 				
 				System.out.println("File "+filename+" sent to Server.");
 			}

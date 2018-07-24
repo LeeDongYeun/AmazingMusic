@@ -1,4 +1,4 @@
-package FileServerTester;
+package Testing_FileServer;
 
 import java.net.Socket;
 //import java.io.IOException;

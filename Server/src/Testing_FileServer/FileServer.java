@@ -1,4 +1,4 @@
-package FileServerTester;
+package Testing_FileServer;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
