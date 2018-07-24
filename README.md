@@ -1,5 +1,5 @@
 # AmazingMusic
-Music Editing web app
+Music Editing Desktop app
 
 Members:
 Chongwei Zhao
