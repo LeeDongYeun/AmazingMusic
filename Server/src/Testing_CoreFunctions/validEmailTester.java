@@ -6,6 +6,8 @@ import java.util.regex.Pattern;
 public class validEmailTester {
 
 	public static void main(String[] args) {
+		System.out.println("Check email validation algorithm.");
+		
 		valid("icho@ucsc.edu", true);
 		valid("ciy405x@kaist.ac.kr", true);
 		valid("me@gmail.com", true);
@@ -25,9 +27,9 @@ public class validEmailTester {
 		 */
 		
 		if(isValidEmail(email) != validity) {
-			System.out.println("reject");
+			System.out.println("FAIL");
 		} else {
-			System.out.println("accept");
+			System.out.println("Pass");
 		}
 	}
 	
