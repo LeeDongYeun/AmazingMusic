@@ -1,6 +1,8 @@
 package Testing_CoreFunctions;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
@@ -13,7 +15,10 @@ import SQLpackage.Database;
 
 public class FileCoreFunctionTester {
 	
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, IOException {
+		Database db = new Database();
+		ResultSet rs = null;
+		
 		LinkedList list = new LinkedList();
 		FileInfo flInfo = null;
 		
@@ -35,6 +40,7 @@ public class FileCoreFunctionTester {
 		
 		
 		flInfo = fileInfoGenerator();
+		setBeforeValidateTest(flInfo);
 		verification(validateTest(flInfo));
 		
 	}
@@ -84,6 +90,7 @@ public class FileCoreFunctionTester {
 				
 				if(rs.next()) {
 					System.out.println("There is a file DB in the post file DB");
+					//db.updateDB("delete from `amazingmusicdb`.`postfile` where fileSerial = '" + flInfo.getFileSerial() + "'");
 					
 					if(!music.exists()) {
 						System.out.println("File has been removed clearly");
@@ -143,6 +150,33 @@ public class FileCoreFunctionTester {
 	
 		System.out.println("test failed");
 		return false;
+	}
+	
+	private static void setBeforeValidateTest(FileInfo flInfo) throws IOException {
+		Database db = new Database();
+		
+		System.out.println(flInfo.getFileSerial());
+		
+		File f = new File("temporary" + File.separatorChar + flInfo.getFileSerial() + flInfo.getExension());
+		f.createNewFile();
+		System.out.println("Adf");
+		FileWriter writer = null;
+		
+		writer = new FileWriter(f, false);
+        writer.write("message");
+        writer.flush();
+        writer.close();
+        System.out.println("Adf");
+
+
+		String result = db.updateDB("insert into `amazingmusicdb`.`waitingfile` (MD5, fileSerial, uid, oriName) "
+				+"values ('"+flInfo.getMD5()+"', '"+flInfo.getFileSerial()+"', '"+flInfo.getUID()+"', '"+flInfo.getOriName()+"')");
+		
+	}
+	
+	private static void setAfterValidateTest(FileInfo flInfo) throws IOException{
+		Database db = new Database();
+		
 	}
 	
 	private static LinkedList linkedListGenerator(FileInfo flInfo) {
