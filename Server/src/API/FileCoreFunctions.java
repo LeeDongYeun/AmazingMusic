@@ -67,7 +67,7 @@ public class FileCoreFunctions {
       
 		Database db = null;
 		ResultSet rs = null;
-		String output = "";
+		String output = " ";
 		File music = new File(path);
 		
 		try {
