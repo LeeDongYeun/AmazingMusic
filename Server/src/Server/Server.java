@@ -13,8 +13,8 @@ public class Server {
 		 * Constructor for Server class.
 		 * Serversocket stays to listen a client's request.
 		 * If server success to listen and accept the request from a client, 
-		 * Create a clientsocket which is connected with a client and
-		 * Create another server thread, which do all server work for the client.
+		 * Create a clientsocket(forget about this terminology) which is connected with a client and
+		 * Create another server thread, which do all real server work for the client.
 		 */
 		ServerSocket serverSocket = null;
 		Socket clientSocket;

@@ -3,6 +3,16 @@ package Object;
 import Util.MD5Class;
 
 public class FileInfo implements java.io.Serializable {
+	
+	/*
+	 * FileInfo class is used to store a file's information
+	 * fileSerial is the number that the servers uses to identify each file. 
+	 * Of course, original name and uid may identify a file, 
+	 * but it would be more convenient to use only one number.
+	 * 
+	 * MD5 is the number that the (file) server uses to check 
+	 * whether this file uploading is approved by general purpose server.
+	 */
    
    private static final long serialVersionUID = -3155511566917792809L;
    

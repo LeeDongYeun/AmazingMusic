@@ -4,6 +4,14 @@ import Util.MD5Class;
 
 public class User implements java.io.Serializable {
 	
+	/*
+	 * User class is used to store an user's information
+	 * Such as email, password, and uid(user id)
+	 * Uid is the number that the servers uses to identify each user. 
+	 * Of course, email and password can identify users, 
+	 * but it would be more convenient to use only one number.
+	 */
+	
 	private static final long serialVersionUID = 1284470853593107085L;
 	private String emailUserName, emailDomain, uid, pw;
 	private String errorCode = "FINE";
@@ -25,7 +33,10 @@ public class User implements java.io.Serializable {
 			this.emailUserName = parts[0];
 			this.emailDomain = parts[1];
 			this.pw = pw;
-			this.uid = MD5Class.MD5Generator(email).substring(0, 10);
+			// MD5 is a kind of random number generator.
+			// Theoretically, this produces an unique number in probability every time.
+			// output is 32 length string. input is unlimited length string.
+			this.uid = MD5Class.MD5Generator(email).substring(0, 10); 
 		}
 	}
 
