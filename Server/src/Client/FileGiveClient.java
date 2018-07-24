@@ -44,6 +44,8 @@ public class FileGiveClient {
 			file = new File(Filename);
 			/*
 			 * if there is file named filename that client give, start sending file to file server
+			 * first, open file input stream that read file data and put it in the stream
+			 * and write data from file input stream to data output stream
 			 */
 			if(file.exists()) {
 				
