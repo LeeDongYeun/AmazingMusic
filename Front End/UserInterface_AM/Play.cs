@@ -18,7 +18,7 @@ namespace UserInterface_AM
         public Play()
         {
             InitializeComponent();
-            label6.Text = Main.selected;
+            PlayFile.Text = Main.selected;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace UserInterface_AM
            
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Back_Click(object sender, EventArgs e)
         {
             Owner.Show();
             Close();

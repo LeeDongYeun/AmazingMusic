@@ -29,52 +29,59 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Play));
-            this.button4 = new System.Windows.Forms.Button();
+            this.Back = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.PlayFile = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button4
+            // Back
             // 
-            this.button4.Location = new System.Drawing.Point(21, 28);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Back";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.Back.BackColor = System.Drawing.Color.Red;
+            this.Back.Location = new System.Drawing.Point(21, 28);
+            this.Back.Name = "Back";
+            this.Back.Size = new System.Drawing.Size(74, 34);
+            this.Back.TabIndex = 3;
+            this.Back.Text = "Back";
+            this.Back.UseVisualStyleBackColor = false;
+            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 85);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(18, 85);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 18);
+            this.label5.Size = new System.Drawing.Size(41, 20);
             this.label5.TabIndex = 14;
             this.label5.Text = "File:";
             // 
-            // label6
+            // PlayFile
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(92, 85);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 18);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "label6";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.PlayFile.AutoSize = true;
+            this.PlayFile.BackColor = System.Drawing.Color.Transparent;
+            this.PlayFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayFile.ForeColor = System.Drawing.Color.White;
+            this.PlayFile.Location = new System.Drawing.Point(143, 85);
+            this.PlayFile.Name = "PlayFile";
+            this.PlayFile.Size = new System.Drawing.Size(68, 20);
+            this.PlayFile.TabIndex = 16;
+            this.PlayFile.Text = "PlayFile";
+            this.PlayFile.Click += new System.EventHandler(this.label6_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bauhaus 93", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(302, 28);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Bauhaus 93", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(364, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 34);
+            this.label1.Size = new System.Drawing.Size(93, 43);
             this.label1.TabIndex = 20;
             this.label1.Text = "Play";
             // 
@@ -84,7 +91,7 @@
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(21, 132);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(518, 352);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(552, 361);
             this.axWindowsMediaPlayer1.TabIndex = 21;
             this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
             // 
@@ -92,12 +99,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 648);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(782, 667);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.PlayFile);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.Back);
             this.Name = "Play";
             this.Text = "Play";
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
@@ -107,9 +115,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label PlayFile;
         private System.Windows.Forms.Label label1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }

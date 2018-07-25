@@ -19,14 +19,14 @@ namespace UserInterface_AM
         }
         
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Create(object sender, EventArgs e)
         {
-            if(textBox1.Text == "")
+            if(RegisterEmail.Text == "")
             {
                 MessageBox.Show("Please enter email address");
                 return;
             }
-            else if(textBox2.Text == "")
+            else if(CreatePassword.Text == "")
             {
                 MessageBox.Show("Please enter password");
                 return;
@@ -49,21 +49,21 @@ namespace UserInterface_AM
         }
        static String email;
        static String pw;
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void EmailText(object sender, EventArgs e)
         {
-            email = textBox1.Text;
+            email = RegisterEmail.Text;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void PasswordText(object sender, EventArgs e)
         {
-            pw = textBox2.Text;
+            pw = CreatePassword.Text;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BackToSignIn(object sender, EventArgs e)
         {
             Owner.Show();
             Hide();
-            textBox1.Text = textBox2.Text = "";
+            RegisterEmail.Text = CreatePassword.Text = "";
         }
     }
 }
