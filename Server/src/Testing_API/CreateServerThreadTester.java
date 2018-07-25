@@ -5,6 +5,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+import API.Decoder;
+
 public class CreateServerThreadTester extends Thread {
 	private Socket clientSocket;
 	
@@ -31,7 +33,7 @@ public class CreateServerThreadTester extends Thread {
 			ObjectOutputStream objOutStream = new ObjectOutputStream(this.clientSocket.getOutputStream());
 			
 			Object userRequest = objInStream.readObject();
-			Object ob = DecoderTester.firewall(userRequest); // check if userRequest is linkedlist in firewall
+			Object ob = Decoder.firewall(userRequest); // check if userRequest is linkedlist in firewall
 			objOutStream.writeObject(ob);
 			objOutStream.flush();
 			

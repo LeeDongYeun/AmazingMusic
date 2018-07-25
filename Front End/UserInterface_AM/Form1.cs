@@ -39,7 +39,7 @@ namespace UserInterface_AM
             {
 
                 
-                string message = Request.Request.login(eMail, Password);
+                string message = Request.Request.login(eMail, Password);//calls login function of server code, inputting eMail and Password Strings
                 if (message.Contains("INVALIDEMAIL"))// user inputs email not recognized in server
                 {
                     MessageBox.Show("Invalid email");
@@ -66,13 +66,14 @@ namespace UserInterface_AM
 
 
         }
+
+
         /*
       * purpose: If user does not have an account, takes them to form to signup
       * input: button press action
       * output: none
       */
-
-        private void GoTo_SignUp(object sender, EventArgs e)
+       private void GoTo_SignUp(object sender, EventArgs e)
         {
             SignUp sign = new SignUp();
             sign.Show(this);
@@ -92,7 +93,7 @@ namespace UserInterface_AM
         /*
       * purpose: assigns String email value to what user inputs in EmailText
       * input: Text typed in text box
-      * output: none
+      * output: none (eMail string is stored)
       */
         private void EmailTextChange(object sender, EventArgs e)
         {
@@ -101,7 +102,7 @@ namespace UserInterface_AM
         /*
       * purpose: assigns String password value to what use inputs in PasswordText
       * input: Text typed in text box
-      * output: none
+      * output: none (Password String is stored)
       */
         private void PasswordTextChange(object sender, EventArgs e)
         {

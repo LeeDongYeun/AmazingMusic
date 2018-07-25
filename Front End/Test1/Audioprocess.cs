@@ -5,10 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace Test1
+namespace UserInterface_AM
 {
     class AudioProcess
     {
+        /* Input: (int) start cutting time, (int) the time of the end of the cutting, (string) input file, (string) output file
+         * Description: This function is used to cut the audio file
+         * Output: none (the function will create a output file to the same folder that contains the input file)
+         */
+
         public void cut_file(int start_time, int final_time, string input_file, string output_file)
         {
             int last_time = final_time - start_time;
@@ -21,7 +26,10 @@ namespace Test1
 
             return;
         }
-
+        /* Input: (double) tempo, (string) input file, (string) output file
+         * Description: This function is used to change the tempo of the audio file
+         * Output: none (the function will create a output file to the folder which have the input file)
+         */
         public void adjust_tempo(double tempo, string input_file, string output_file)
         {
             string str_tempo = string.Format("{0:G}", tempo);
@@ -30,7 +38,10 @@ namespace Test1
             string command = " -y -i " + input_file + " -filter:a \"atempo = " + str_tempo + "\" " + output_file;
             call_process("ffmpeg.exe", command, false);
         }
-
+        /* Input: (double) pitch, (string) input file, (string) output file
+         * Description: This function is used to change the pitch of the audio file
+         * Output: none (the function will create a output file to the folder which have the input file)
+         */
         public void adjust_pitch(double pitch, string input_file, string output_file)
         {
             //Get the sample rate of the input file first
@@ -51,7 +62,10 @@ namespace Test1
             command = " -y -i " + input_file + " -filter:a \"asetrate = " + samplerate + ",atempo = " + newTempo + "\" " + output_file;
             call_process("ffmpeg.exe", command, false);
         }
-
+        /* Input: (string) process name (ffmpeg.exe, ffprobe.exe), (string) FFMPEG command, (bool) judegument of using redirector
+         * Description: This function is used to provide some common function for analysis the file
+         * Output: a string 
+         */
         public string call_process(string process_name, string param, bool redirect)
         {
             Process process = new Process();
@@ -74,6 +88,7 @@ namespace Test1
             }
 
             process.WaitForExit();
+
 
             return strResult;
         }

@@ -1,0 +1,6 @@
+C:\Users\balis\source\repos\UserInterface_AM\Test1\bin\Release\Test1.exe.config
+C:\Users\balis\source\repos\UserInterface_AM\Test1\bin\Release\Test1.exe
+C:\Users\balis\source\repos\UserInterface_AM\Test1\bin\Release\Test1.pdb
+C:\Users\balis\source\repos\UserInterface_AM\Test1\obj\Release\Test1.csproj.CoreCompileInputs.cache
+C:\Users\balis\source\repos\UserInterface_AM\Test1\obj\Release\Test1.exe
+C:\Users\balis\source\repos\UserInterface_AM\Test1\obj\Release\Test1.pdb

@@ -18,7 +18,11 @@ namespace UserInterface_AM
             InitializeComponent();
             ShareFile.Text = Main.selected;
         }
-
+        /*
+     * purpose: Returns user to Main form
+     * input: Buttonclick on Back button
+     * output: none
+     */
         private void Back_Click(object sender, EventArgs e)
         {
             Owner.Show();
@@ -27,7 +31,11 @@ namespace UserInterface_AM
         }
 
 
-
+        /*
+     * purpose: Uploads the users previously selected file to the server
+     * input: Buttonclick on Upload button
+     * output: none
+     */
         private void Upload_Click(object sender, EventArgs e)
         {
 

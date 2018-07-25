@@ -18,7 +18,7 @@ namespace UserInterface_AM
         public Play()
         {
             InitializeComponent();
-            PlayFile.Text = Main.selected;
+            PlayFile.Text = Main.selected;//File being played is same that was selected in listbox on Main form
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,6 +26,12 @@ namespace UserInterface_AM
 
         }
 
+
+        /*
+     * purpose: Returns user to the Main form
+     * input: Buttonclick on Back button
+     * output: none
+     */
         private void Back_Click(object sender, EventArgs e)
         {
             Owner.Show();
@@ -37,6 +43,11 @@ namespace UserInterface_AM
 
         }
 
+        /*
+     * purpose: Opens file the user previously selected in Windows Media Player, allows user to listen to audio file
+     * input: none
+     * output: none
+     */
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
             axWindowsMediaPlayer1.URL = Main.selected;

@@ -16,29 +16,37 @@ namespace UserInterface_AM
 {
     public partial class Search : Form
     {
-        public static String searchKeyword;
+        public static String searchKeyword; //keyword that is used to search files in the postfiles database
         public List<string> urlArray; // urlArray stores urls(the link where user can download the corresponding file) for each file(name)
-
+        String downloadFile; //file user selects to download
+        String downloadURLIndex; //URL of download file
+        String filename;//Original filename of search result
+        String url;//full url corresponding of filename
+        String newFileName; //The filename the user gives to their downloaded file
         public Search()
         {
             InitializeComponent();
             urlArray = new List<string>(); // Initialize urlArray when search screen is open
         }
 
+        /*
+       * purpose: Returns user to Main form
+       * input: Buttonclick on Back button
+       * output: none
+       */
         private void Back_Click(object sender, EventArgs e)
         {
             Owner.Show();
             Close();
         }
-        String downloadFile;
 
-        String downloadURLIndex;
-
-
-
-        String url;
-        String filename;
         //String[] urlList;
+
+        /*
+      * purpose: Search action that causes user's keyword to be searched in the database
+      * input: User text in SearchBar, Buttonclick on Search button
+      * output: none
+      */
         private void SearchButton_Click(object sender, EventArgs e)
         {
             if (ResultList.Items.Count > 0)
@@ -46,17 +54,17 @@ namespace UserInterface_AM
                 ResultList.Items.Clear();      // Initialize the result list screen when user click Go button again
                 urlArray = new List<string>(); // Initialize urlArray when user click Go button again
             }
-            if (SearchBar.Text == "")
+            if (SearchBar.Text == "")   
             {
-                MessageBox.Show("Please enter keyword");
+                MessageBox.Show("Please enter keyword");//Prompt user to enter a keyword if their SearchBar textbox is empty
 
             }
             else
             {
-                object result = Request.Request.search(searchKeyword);
+                object result = Request.Request.search(searchKeyword);//calls the Request.search(keyword) server function
                 if ((result.GetType().Equals((new LinkedList()).GetType())))
                 {
-                    LinkedList list = (LinkedList)result;
+                    LinkedList list = (LinkedList)result;//Creates linked list to hold search results
                     while (list.end != null)
                     {
                         SearchResult sr = (SearchResult)list.head.getInfo();
@@ -82,11 +90,23 @@ namespace UserInterface_AM
 
             }
         }
+        /*
+    * purpose: User enters keyword into SearchBar listbox 
+    * input: User text
+    * output: none (searchKeyword String is stored)
+    */
         private void SearchBar_TextChanged(object sender, EventArgs e)
         {
             searchKeyword = SearchBar.Text;
         }
-        String newFileName;
+
+        
+
+        /*
+    * purpose: Download action to download user's selected search result onto their local disk
+    * input: User selects ResultList listbox item, Buttonclick on Download button
+    * output: none
+    */
         private void DownloadButton_Click(object sender, EventArgs e)
         {
             if (ResultList.SelectedIndex == -1)
@@ -103,10 +123,14 @@ namespace UserInterface_AM
                 MessageBox.Show(message);
             }
         }
-
+        /*
+      * purpose: Returns user to Main form
+      * input: User selects ResultList listbox item
+      * output: none
+      */
         private void ResultList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ResultList.SelectedIndex == -1)
+            if (ResultList.SelectedIndex == -1)//if click on an empty part of ResultList, do nothing
             {
 
             }
@@ -117,7 +141,7 @@ namespace UserInterface_AM
             }
         }
 
-        private void FileSaveAs_TextChanged(object sender, EventArgs e)
+        private void FileSaveAs_TextChanged(object sender, EventArgs e)//names the file what user inputs into textbox
         {
             newFileName = FileSaveAs.Text;
 

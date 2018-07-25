@@ -18,7 +18,11 @@ namespace UserInterface_AM
             InitializeComponent();
         }
 
-
+        /*
+     * purpose: Allows the user to create an account by registering email and password with the server
+     * input: Email and Password text in RegisterEmail textbox and CreatePassword textbox, Buttonclick on CreateAccount button
+     * output: if register is unsuccessful, MessageBox prints "Register Failed"
+     */
         private void Create(object sender, EventArgs e)
         {
             if (RegisterEmail.Text == "")
@@ -33,22 +37,23 @@ namespace UserInterface_AM
             }
 
 
-            String rMessage = (Request.Request.register(email, pw));
-            if (rMessage.Equals("UPS"))
+            String rMessage = (Request.Request.register(email, pw));//calls register function of server code inputting email and pw from user
+            
+            if (rMessage.Equals("UPS"))//if register is successful, close SignUp form and return to SignIn form
             {
                 Owner.Show();
                 Close();
             }
             else
             {
-                MessageBox.Show(rMessage);
+                MessageBox.Show(rMessage);//if register is unsuccessful, show error message
             }
 
-            //Owner.Show();
-            //Hide();
+            
         }
         static String email;
         static String pw;
+
         private void EmailText(object sender, EventArgs e)
         {
             email = RegisterEmail.Text;
@@ -59,6 +64,11 @@ namespace UserInterface_AM
             pw = CreatePassword.Text;
         }
 
+        /*
+     * purpose: Returns user to SignIn form (Form1)
+     * input: Buttonclick on Back button
+     * output: none
+     */
         private void BackToSignIn(object sender, EventArgs e)
         {
             Owner.Show();

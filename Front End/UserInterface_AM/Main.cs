@@ -24,14 +24,21 @@ namespace UserInterface_AM
 
 
 
-        string[] name;
+        string[] filenames;//array used to store imported filenames
+
+        public static string selected;//item selected in FileList listbox
+
         public Main()
         {
             InitializeComponent();
         }
 
 
-        public static string selected;
+        /*
+       * purpose: Takes user to the Edit form to edit the selected audio file
+       * input: Buttonclick, user must have selected FileList item
+       * output: none
+       */
         private void EditFile(object sender, EventArgs e)
         {
             if (FileList.SelectedIndex == -1)
@@ -46,7 +53,11 @@ namespace UserInterface_AM
                 Hide();
             }
         }
-
+        /*
+       * purpose: Allows user to enter Play form to play selected audio file
+       * input: Buttonclick, user select item from FileList
+       * output: none
+       */
         private void PlayFile(object sender, EventArgs e)
         {
             if (FileList.SelectedIndex == -1)
@@ -62,7 +73,11 @@ namespace UserInterface_AM
             }
 
         }
-
+        /*
+       * purpose: Allows user to importfiles from their local disk
+       * input: Buttonclick event
+       * output: none
+       */
         private void ImportFiles(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -70,20 +85,30 @@ namespace UserInterface_AM
             open.Filter = "Wav Files|*.wav";
             if (open.ShowDialog() == DialogResult.OK)
             {
-                name = open.FileNames;
-                for (int i = 0; i < name.Length; i++)
+                filenames = open.FileNames;
+                for (int i = 0; i < filenames.Length; i++)
                 {
-                    FileList.Items.Add(name[i]);
+                    FileList.Items.Add(filenames[i]);
                 }
             }
         }
 
+        /*
+     * purpose: Returns users to Form1 
+     * input: Buttonclick on SignOut button
+     * output: none
+     */
         private void SignOut(object sender, EventArgs e)
         {
             new Form1().Show();
             Close();
         }
 
+        /*
+     * purpose: Allows users to enter Search form 
+     * input: Buttonclick on search button
+     * output: none
+     */
         private void SearchFiles(object sender, EventArgs e)
         {
             search = new Search();
@@ -93,6 +118,12 @@ namespace UserInterface_AM
 
         }
 
+
+        /*
+     * purpose: Clears the FileList listbox
+     * input: Buttonclick on clear button
+     * output: none
+     */
         private void Clear(object sender, EventArgs e)
         {
             if (FileList.Items.Count == 0)
@@ -106,6 +137,12 @@ namespace UserInterface_AM
             }
         }
 
+
+        /*
+     * purpose: Allow users to remove selected items in FileList listbox
+     * input: select a file in FileList and Buttonclick on Remove button
+     * output: none
+     */
         private void Remove(object sender, EventArgs e)
         {
             if (FileList.Items.Count == 0)
@@ -123,6 +160,11 @@ namespace UserInterface_AM
             }
         }
 
+        /*
+     * purpose: Allow user to enter Share form to share selected audio file
+     * input: select a file from FileList, Buttonclick on Share button
+     * output: none
+     */
         private void ShareButton_Click(object sender, EventArgs e)
         {
             if (FileList.SelectedIndex == -1)
