@@ -15,15 +15,15 @@ using Request;
 namespace UserInterface_AM
 {
     public partial class Main : Form
-       
+
     {
         Play play;
         Edit edit;
         Share share;
         Search search;
-        
 
-        
+
+
         string[] name;
         public Main()
         {
@@ -46,7 +46,7 @@ namespace UserInterface_AM
                 Hide();
             }
         }
-        
+
         private void PlayFile(object sender, EventArgs e)
         {
             if (FileList.SelectedIndex == -1)
@@ -88,9 +88,9 @@ namespace UserInterface_AM
         {
             search = new Search();
             search.Show(this);
-            
-          
-           
+
+
+
         }
 
         private void Clear(object sender, EventArgs e)
@@ -113,7 +113,7 @@ namespace UserInterface_AM
                 MessageBox.Show("List is Empty");
 
             }
-            else if(FileList.SelectedIndex == -1)
+            else if (FileList.SelectedIndex == -1)
             {
                 MessageBox.Show("Select a file to remove");
             }

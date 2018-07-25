@@ -26,14 +26,15 @@ namespace UserInterface_AM
 
         }
 
-        
+
 
         private void Upload_Click(object sender, EventArgs e)
         {
-          
+
 
             String message = Request.Request.upload(Form1.correctUID, ShareFile.Text);
-            if (message.Equals("VALIDATE SUCCESS")){
+            if (message.Equals("VALIDATE SUCCESS"))
+            {
                 MessageBox.Show("File Successfully Uploaded!");
                 Owner.Show();
                 Close();

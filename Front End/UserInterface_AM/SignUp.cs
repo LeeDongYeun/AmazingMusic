@@ -17,16 +17,16 @@ namespace UserInterface_AM
         {
             InitializeComponent();
         }
-        
+
 
         private void Create(object sender, EventArgs e)
         {
-            if(RegisterEmail.Text == "")
+            if (RegisterEmail.Text == "")
             {
                 MessageBox.Show("Please enter email address");
                 return;
             }
-            else if(CreatePassword.Text == "")
+            else if (CreatePassword.Text == "")
             {
                 MessageBox.Show("Please enter password");
                 return;
@@ -43,12 +43,12 @@ namespace UserInterface_AM
             {
                 MessageBox.Show(rMessage);
             }
-         
+
             //Owner.Show();
             //Hide();
         }
-       static String email;
-       static String pw;
+        static String email;
+        static String pw;
         private void EmailText(object sender, EventArgs e)
         {
             email = RegisterEmail.Text;

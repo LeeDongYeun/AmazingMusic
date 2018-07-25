@@ -23,7 +23,7 @@ namespace UserInterface_AM
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace UserInterface_AM
 
         private void label6_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)

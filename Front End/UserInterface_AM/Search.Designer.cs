@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace UserInterface_AM
+﻿namespace UserInterface_AM
 {
     partial class Search
     {
@@ -118,7 +116,7 @@ namespace UserInterface_AM
             this.ResultList.Name = "ResultList";
             this.ResultList.Size = new System.Drawing.Size(631, 212);
             this.ResultList.TabIndex = 13;
-            this.ResultList.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            this.ResultList.SelectedIndexChanged += new System.EventHandler(this.ResultList_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -174,10 +172,6 @@ namespace UserInterface_AM
             this.ResumeLayout(false);
             this.PerformLayout();
 
-            /*
-             * Initialize a map betwwen fliename and url
-             */
-            filenameToUrl = new Dictionary<string, string>();
         }
 
         #endregion

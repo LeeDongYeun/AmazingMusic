@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 using Object;
 using Request;
 
@@ -16,11 +17,12 @@ namespace UserInterface_AM
     public partial class Search : Form
     {
         public static String searchKeyword;
-        public Dictionary<string, string> filenameToUrl;
+        public List<string> urlArray; // urlArray stores urls(the link where user can download the corresponding file) for each file(name)
 
         public Search()
         {
             InitializeComponent();
+            urlArray = new List<string>(); // Initialize urlArray when search screen is open
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -41,7 +43,8 @@ namespace UserInterface_AM
         {
             if (ResultList.Items.Count > 0)
             {
-                ResultList.Items.Clear();
+                ResultList.Items.Clear();      // Initialize the result list screen when user click Go button again
+                urlArray = new List<string>(); // Initialize urlArray when user click Go button again
             }
             if (SearchBar.Text == "")
             {
@@ -57,11 +60,16 @@ namespace UserInterface_AM
                     while (list.end != null)
                     {
                         SearchResult sr = (SearchResult)list.head.getInfo();
-                        url = "file://localhost/C:\\Users\\balis\\Desktop\\AmazingMusic\\Server\\src\\" + sr.getURL();
+                        url = "file://localhost/C:\\Users\\balis\\OneDrive\\Documents\\GitHub\\AmazingMusic\\Server\\" + sr.getURL();
                         filename = sr.getOriName();
 
-                        filenameToUrl.Add(filename, url);
-                        ResultList.Items.Add(url);
+                        /*
+                         * Store both url and filename
+                         * ResultList is used to display filenames to user,
+                         * while urlArray is used to give correspoding url to server
+                         */
+                        urlArray.Add(url);
+                        ResultList.Items.Add(filename);
 
                         list.delete(0);
                     }
@@ -78,7 +86,6 @@ namespace UserInterface_AM
         {
             searchKeyword = SearchBar.Text;
         }
-
         String newFileName;
         private void DownloadButton_Click(object sender, EventArgs e)
         {
@@ -97,7 +104,7 @@ namespace UserInterface_AM
             }
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void ResultList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ResultList.SelectedIndex == -1)
             {
@@ -105,17 +112,8 @@ namespace UserInterface_AM
             }
             else
             {
-                string mapUrl;
-                // ... Use TryGetValue to safely look up a value in the map.
-                if (filenameToUrl.TryGetValue(listBox2.SelectedItem.ToString(), out mapUrl))
-                {
-                    downloadURLIndex = mapUrl;
-                    MessageBox.Show(mapUrl);
-                }
-                else
-                {
-                    MessageBox.Show("debug needed");
-                }
+                downloadURLIndex = urlArray[ResultList.SelectedIndex]; // get the corresponding url
+                MessageBox.Show(downloadURLIndex);
             }
         }
 
