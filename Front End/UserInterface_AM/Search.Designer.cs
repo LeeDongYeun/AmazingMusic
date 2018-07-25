@@ -1,4 +1,6 @@
-﻿namespace UserInterface_AM
+﻿using System.Collections.Generic;
+
+namespace UserInterface_AM
 {
     partial class Search
     {
@@ -172,6 +174,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            /*
+             * Initialize a map betwwen fliename and url
+             */
+            filenameToUrl = new Dictionary<string, string>();
         }
 
         #endregion

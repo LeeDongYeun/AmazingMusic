@@ -16,6 +16,8 @@ namespace UserInterface_AM
     public partial class Search : Form
     {
         public static String searchKeyword;
+        public Dictionary<string, string> filenameToUrl;
+
         public Search()
         {
             InitializeComponent();
@@ -58,6 +60,7 @@ namespace UserInterface_AM
                         url = "file://localhost/C:\\Users\\balis\\Desktop\\AmazingMusic\\Server\\src\\" + sr.getURL();
                         filename = sr.getOriName();
 
+                        filenameToUrl.Add(filename, url);
                         ResultList.Items.Add(url);
 
                         list.delete(0);
@@ -75,6 +78,7 @@ namespace UserInterface_AM
         {
             searchKeyword = SearchBar.Text;
         }
+
         String newFileName;
         private void DownloadButton_Click(object sender, EventArgs e)
         {
@@ -101,8 +105,17 @@ namespace UserInterface_AM
             }
             else
             {
-                downloadURLIndex = ResultList.SelectedItem.ToString();
-                MessageBox.Show(downloadURLIndex);
+                string mapUrl;
+                // ... Use TryGetValue to safely look up a value in the map.
+                if (filenameToUrl.TryGetValue(listBox2.SelectedItem.ToString(), out mapUrl))
+                {
+                    downloadURLIndex = mapUrl;
+                    MessageBox.Show(mapUrl);
+                }
+                else
+                {
+                    MessageBox.Show("debug needed");
+                }
             }
         }
 
