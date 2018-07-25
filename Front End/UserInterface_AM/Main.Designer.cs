@@ -29,137 +29,159 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.PlayButton = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.SignOutButton = new System.Windows.Forms.Button();
+            this.ShareButton = new System.Windows.Forms.Button();
+            this.EditButton = new System.Windows.Forms.Button();
+            this.AddFile = new System.Windows.Forms.Button();
+            this.FileList = new System.Windows.Forms.ListBox();
+            this.RemoveFile = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.ClearList = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // PlayButton
             // 
-            this.button1.Location = new System.Drawing.Point(32, 141);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 37);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Play";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.PlayButton.BackColor = System.Drawing.Color.Silver;
+            this.PlayButton.Location = new System.Drawing.Point(32, 141);
+            this.PlayButton.Name = "PlayButton";
+            this.PlayButton.Size = new System.Drawing.Size(142, 37);
+            this.PlayButton.TabIndex = 0;
+            this.PlayButton.Text = "Play";
+            this.PlayButton.UseVisualStyleBackColor = false;
+            this.PlayButton.Click += new System.EventHandler(this.PlayFile);
             // 
-            // button2
+            // SearchButton
             // 
-            this.button2.Location = new System.Drawing.Point(33, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Search/Download";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.SearchButton.BackColor = System.Drawing.Color.Silver;
+            this.SearchButton.Location = new System.Drawing.Point(33, 12);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(141, 40);
+            this.SearchButton.TabIndex = 1;
+            this.SearchButton.Text = "Search/Download";
+            this.SearchButton.UseVisualStyleBackColor = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchFiles);
             // 
-            // button3
+            // SignOutButton
             // 
-            this.button3.Location = new System.Drawing.Point(615, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Sign Out";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.SignOutButton.BackColor = System.Drawing.Color.MediumOrchid;
+            this.SignOutButton.Location = new System.Drawing.Point(615, 12);
+            this.SignOutButton.Name = "SignOutButton";
+            this.SignOutButton.Size = new System.Drawing.Size(75, 40);
+            this.SignOutButton.TabIndex = 2;
+            this.SignOutButton.Text = "Sign Out";
+            this.SignOutButton.UseVisualStyleBackColor = false;
+            this.SignOutButton.Click += new System.EventHandler(this.SignOut);
             // 
-            // button4
+            // ShareButton
             // 
-            this.button4.Location = new System.Drawing.Point(471, 141);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(141, 37);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Share";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.ShareButton.BackColor = System.Drawing.Color.Silver;
+            this.ShareButton.Location = new System.Drawing.Point(471, 141);
+            this.ShareButton.Name = "ShareButton";
+            this.ShareButton.Size = new System.Drawing.Size(141, 37);
+            this.ShareButton.TabIndex = 3;
+            this.ShareButton.Text = "Share";
+            this.ShareButton.UseVisualStyleBackColor = false;
+            this.ShareButton.Click += new System.EventHandler(this.ShareButton_Click);
             // 
-            // button5
+            // EditButton
             // 
-            this.button5.Location = new System.Drawing.Point(253, 141);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(141, 37);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Edit";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.EditButton.BackColor = System.Drawing.Color.Silver;
+            this.EditButton.Location = new System.Drawing.Point(253, 141);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(141, 37);
+            this.EditButton.TabIndex = 4;
+            this.EditButton.Text = "Edit";
+            this.EditButton.UseVisualStyleBackColor = false;
+            this.EditButton.Click += new System.EventHandler(this.EditFile);
             // 
-            // button6
+            // AddFile
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.Location = new System.Drawing.Point(32, 78);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(142, 37);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Add File";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.AddFile.BackColor = System.Drawing.Color.Silver;
+            this.AddFile.Location = new System.Drawing.Point(32, 78);
+            this.AddFile.Name = "AddFile";
+            this.AddFile.Size = new System.Drawing.Size(142, 37);
+            this.AddFile.TabIndex = 5;
+            this.AddFile.Text = "Add File(s)";
+            this.AddFile.UseVisualStyleBackColor = false;
+            this.AddFile.Click += new System.EventHandler(this.ImportFiles);
             // 
-            // listBox1
+            // FileList
             // 
-            this.listBox1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 19;
-            this.listBox1.Location = new System.Drawing.Point(32, 240);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(649, 308);
-            this.listBox1.TabIndex = 6;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.FileList.Font = new System.Drawing.Font("MS Reference Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FileList.FormattingEnabled = true;
+            this.FileList.ItemHeight = 16;
+            this.FileList.Location = new System.Drawing.Point(12, 224);
+            this.FileList.Name = "FileList";
+            this.FileList.Size = new System.Drawing.Size(702, 340);
+            this.FileList.TabIndex = 6;
             // 
-            // button7
+            // RemoveFile
             // 
-            this.button7.Location = new System.Drawing.Point(253, 78);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(141, 37);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Remove File";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.RemoveFile.BackColor = System.Drawing.Color.Silver;
+            this.RemoveFile.Location = new System.Drawing.Point(253, 78);
+            this.RemoveFile.Name = "RemoveFile";
+            this.RemoveFile.Size = new System.Drawing.Size(141, 37);
+            this.RemoveFile.TabIndex = 7;
+            this.RemoveFile.Text = "Remove File";
+            this.RemoveFile.UseVisualStyleBackColor = false;
+            this.RemoveFile.Click += new System.EventHandler(this.Remove);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 206);
+            this.label1.Location = new System.Drawing.Point(12, 198);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 23);
             this.label1.TabIndex = 8;
             this.label1.Text = "File List:";
             // 
-            // button8
+            // ClearList
             // 
-            this.button8.Location = new System.Drawing.Point(471, 78);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(141, 37);
-            this.button8.TabIndex = 9;
-            this.button8.Text = "Clear List";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.ClearList.BackColor = System.Drawing.Color.Silver;
+            this.ClearList.ForeColor = System.Drawing.Color.Black;
+            this.ClearList.Location = new System.Drawing.Point(471, 78);
+            this.ClearList.Name = "ClearList";
+            this.ClearList.Size = new System.Drawing.Size(141, 37);
+            this.ClearList.TabIndex = 9;
+            this.ClearList.Text = "Clear List";
+            this.ClearList.UseVisualStyleBackColor = false;
+            this.ClearList.Click += new System.EventHandler(this.Clear);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Bauhaus 93", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(223, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(273, 43);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Amazing Music";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(719, 569);
-            this.Controls.Add(this.button8);
+            this.ClientSize = new System.Drawing.Size(726, 569);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ClearList);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.RemoveFile);
+            this.Controls.Add(this.FileList);
+            this.Controls.Add(this.AddFile);
+            this.Controls.Add(this.EditButton);
+            this.Controls.Add(this.ShareButton);
+            this.Controls.Add(this.SignOutButton);
+            this.Controls.Add(this.SearchButton);
+            this.Controls.Add(this.PlayButton);
             this.Name = "Main";
             this.Text = "Main";
             this.ResumeLayout(false);
@@ -169,15 +191,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button PlayButton;
+        private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.Button SignOutButton;
+        private System.Windows.Forms.Button ShareButton;
+        private System.Windows.Forms.Button EditButton;
+        private System.Windows.Forms.Button AddFile;
+        private System.Windows.Forms.ListBox FileList;
+        private System.Windows.Forms.Button RemoveFile;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button ClearList;
+        private System.Windows.Forms.Label label3;
     }
 }

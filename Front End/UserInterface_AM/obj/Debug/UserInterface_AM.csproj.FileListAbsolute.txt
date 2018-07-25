@@ -9,9 +9,6 @@ c:\users\balis\source\repos\UserInterface_AM\UserInterface_AM\obj\Debug\UserInte
 c:\users\balis\source\repos\UserInterface_AM\UserInterface_AM\obj\Debug\UserInterface_AM.csproj.CoreCompileInputs.cache
 c:\users\balis\source\repos\UserInterface_AM\UserInterface_AM\obj\Debug\UserInterface_AM.exe
 c:\users\balis\source\repos\UserInterface_AM\UserInterface_AM\obj\Debug\UserInterface_AM.pdb
-C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\IKVM.OpenJDK.Core.dll
-C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\IKVM.Runtime.dll
-C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\IKVM.Runtime.JNI.dll
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\obj\Debug\UserInterface_AM.Main.resources
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\obj\Debug\UserInterface_AM.Play.resources
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\obj\Debug\UserInterface_AM.csproj.CopyComplete
@@ -26,7 +23,3 @@ C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\AxIntero
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\MySql.Data.dll
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\Google.Protobuf.dll
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\MySql.Data.xml
-C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\IKVM.OpenJDK.Util.dll
-C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\IKVM.OpenJDK.Security.dll
-C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\Clients.dll
-C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\IKVM.OpenJDK.Jdbc.dll

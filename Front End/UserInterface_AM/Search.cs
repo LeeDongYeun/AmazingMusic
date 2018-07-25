@@ -37,34 +37,43 @@ namespace UserInterface_AM
         //String[] urlList;
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (SearchBar.Text == "")
             {
                 MessageBox.Show("Please enter keyword");
 
             }
             else { 
             object result = Request.Request.search(searchKeyword);
-            LinkedList list = (LinkedList)result;
-            while (list.end != null)
-            {
-                SearchResult sr = (SearchResult)list.head.getInfo();
-                url = "file://localhost/C:\\Users\\balis\\Desktop\\AmazingMusicServer\\Server\\" + sr.getURL();
-                filename = sr.getOriName();
+            if((result.GetType().Equals((new LinkedList()).GetType())))
+                  {
+                    LinkedList list = (LinkedList)result;
+                    while (list.end != null)
+                    {
+                        SearchResult sr = (SearchResult)list.head.getInfo();
+                        url = "file://localhost/C:\\Users\\balis\\Desktop\\AmazingMusic\\Server\\src\\" + sr.getURL();
+                        filename = sr.getOriName();
 
-                listBox2.Items.Add(url);
+                        SearchResults.Items.Add(url);
 
-                list.delete(0);
-            }
+                        list.delete(0);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No Results found");
+                } 
+            
+            
         }
     }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            searchKeyword = textBox1.Text;
+            searchKeyword = SearchBar.Text;
         }
         String newFileName;
         private void button1_Click(object sender, EventArgs e)
         {
-           if (listBox2.SelectedIndex == -1)
+           if (SearchResults.SelectedIndex == -1)
             {
                 MessageBox.Show("Select file to download");
             }
@@ -81,20 +90,20 @@ namespace UserInterface_AM
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox2.SelectedIndex == -1)
+            if (SearchResults.SelectedIndex == -1)
             {
 
             }
             else
             {
-                downloadURLIndex = listBox2.SelectedItem.ToString();
+                downloadURLIndex = SearchResults.SelectedItem.ToString();
                 MessageBox.Show(downloadURLIndex);
             }
         }
         
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            newFileName = textBox2.Text;
+            newFileName = FileSaveAs.Text;
 
         }
     }

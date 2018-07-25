@@ -16,38 +16,34 @@ namespace UserInterface_AM
         public Share()
         {
             InitializeComponent();
-            label2.Text = Main.selected;
+            ShareFile.Text = Main.selected;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Back_Click(object sender, EventArgs e)
         {
             Owner.Show();
             Close();
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        
+
+        private void Upload_Click(object sender, EventArgs e)
         {
+          
 
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Request.Request.upload
-
-            String message = Request.Request.upload(Form1.correctUID, label2.Text);
+            String message = Request.Request.upload(Form1.correctUID, ShareFile.Text);
             if (message.Equals("VALIDATE SUCCESS")){
                 MessageBox.Show("File Successfully Uploaded!");
+                Owner.Show();
+                Close();
 
             }
             else
             {
                 MessageBox.Show(message);
+                Owner.Show();
+                Close();
             }
         }
     }
