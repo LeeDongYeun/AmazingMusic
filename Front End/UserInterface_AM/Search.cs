@@ -16,6 +16,8 @@ namespace UserInterface_AM
     public partial class Search : Form
     {
         public static String searchKeyword;
+        public Dictionary<string, string> filenameToUrl;
+
         public Search()
         {
             InitializeComponent();
@@ -42,21 +44,32 @@ namespace UserInterface_AM
                 MessageBox.Show("Please enter keyword");
 
             }
-            else { 
-            object result = Request.Request.search(searchKeyword);
-            LinkedList list = (LinkedList)result;
-            while (list.end != null)
-            {
-                SearchResult sr = (SearchResult)list.head.getInfo();
-                url = "file://localhost/C:\\Users\\balis\\Desktop\\AmazingMusicServer\\Server\\" + sr.getURL();
-                filename = sr.getOriName();
+            else
+            { 
+                object result = Request.Request.search(searchKeyword);
+                if (result.GetType().Equals("".GetType()))
+                {
+                    MessageBox.Show("No such file. Try another file."); // changed
+                }
+                else
+                {
+                    LinkedList list = (LinkedList)result;
+                    while (list.end != null)
+                    {
+                        SearchResult sr = (SearchResult)list.head.getInfo();
+                        url = "file://localhost/C:\\Users\\" + Environment.UserName + "\\Documents\\GitHub\\AmazingMusic\\Server\\src\\" + sr.getURL(); // changed
+                        filename = sr.getOriName();
 
-                listBox2.Items.Add(url);
+                        filenameToUrl.Add(filename, url);
 
-                list.delete(0);
+                        listBox2.Items.Add(filename);
+
+                        list.delete(0);
+                    }
+                }  
             }
         }
-    }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             searchKeyword = textBox1.Text;
@@ -87,8 +100,17 @@ namespace UserInterface_AM
             }
             else
             {
-                downloadURLIndex = listBox2.SelectedItem.ToString();
-                MessageBox.Show(downloadURLIndex);
+                string mapUrl;
+                // ... Use TryGetValue to safely look up a value in the map.
+                if (filenameToUrl.TryGetValue(listBox2.SelectedItem.ToString(),out mapUrl)) 
+                {
+                    downloadURLIndex = mapUrl;
+                    MessageBox.Show(mapUrl);
+                }
+                else
+                {
+                    MessageBox.Show("debug needed");
+                }
             }
         }
         

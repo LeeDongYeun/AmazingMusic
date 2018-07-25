@@ -30,3 +30,28 @@ C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\IKVM.Ope
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\IKVM.OpenJDK.Security.dll
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\Clients.dll
 C:\Users\balis\source\repos\UserInterface_AM\UserInterface_AM\bin\Debug\IKVM.OpenJDK.Jdbc.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\bin\Debug\UserInterface_AM.exe.config
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\bin\Debug\UserInterface_AM.exe
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\bin\Debug\UserInterface_AM.pdb
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\bin\Debug\MySql.Data.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\bin\Debug\Google.Protobuf.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\bin\Debug\MySql.Data.xml
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\bin\Debug\Interop.WMPLib.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.csprojAssemblyReference.cache
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\Interop.WMPLib.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.csproj.ResolveComReference.cache
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.Edit.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.Form1.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.Main.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.Play.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.Properties.Resources.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.Search.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.Share.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.SignUp.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.csproj.GenerateResource.cache
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.csproj.CoreCompileInputs.cache
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.csproj.CopyComplete
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.exe
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Debug\UserInterface_AM.pdb
