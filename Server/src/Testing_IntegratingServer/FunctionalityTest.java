@@ -72,7 +72,7 @@ public class FunctionalityTest {
 		System.out.println("Music uploading test");
 		
 		for (int i=0; i<emails.length; i++) {
-			if (!Request.upload(uids[i], "C:\\Users\\user\\Desktop\\거미-01-You Are My Everything-320k.mp3").equals("VALIDATE SUCCESS")) {
+			if (!Request.upload(uids[i], "C:\\Users\\인영\\Music\\AmaMusic\\"+musics[i]).equals("VALIDATE SUCCESS")) {
 				printError(0x03, musics[i]);
 				return;
 			}
@@ -117,13 +117,16 @@ public class FunctionalityTest {
 	}
 	
 	private static void allInOneTest() throws Exception {
-		System.out.println("Music downloading test 2");
+		System.out.println("All in one test");
 		
 		Object llObj, srObj;
 		LinkedList ll;
 		SearchResult sr;
-		String uid, url, filename;
+		String uid, url, filename, initialize;
+		Database db = new Database();
 		
+		initialize = "delete from `amazingmusicdb`.`userInfo` where `emailUsername`='" + "muDownTe" + "' and `emailDomain`='" + "st.co.kr" + "';";
+		db.updateDB(initialize);
 		if (!Request.register("muDownTe@st.co.kr", "download").equals("UPS"))
 			return;
 		uid = Request.login("muDownTe@st.co.kr", "download");

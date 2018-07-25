@@ -10,7 +10,7 @@ public class SQL {
 	
 	public SQL() {
 		this.id = "root";//"amaMusic";
-		this.pw = "Delilah1";//"dl938271";//"loveCS115.";//"ciy405x";//
+		this.pw = "cofls8680*";//"Delilah1";//"dl938271";//"loveCS115.";//"ciy405x";//
 		this.dbName = "amazingmusicdb";
 	}
 	

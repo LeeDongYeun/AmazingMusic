@@ -13,8 +13,8 @@ public class IntegratingTest {
 		 */
 
 		ValidationTest.main(null);
-		//FunctionalityTest.main(null);
-		//RobustnessTest.main(null);
+		FunctionalityTest.main(null);
+		RobustnessTest.main(null);
 	}
 
 }

@@ -5,3 +5,17 @@ C:\Users\balis\source\repos\UserInterface_AM\Test1\obj\Debug\Test1.csprojAssembl
 C:\Users\balis\source\repos\UserInterface_AM\Test1\obj\Debug\Test1.csproj.CoreCompileInputs.cache
 C:\Users\balis\source\repos\UserInterface_AM\Test1\obj\Debug\Test1.exe
 C:\Users\balis\source\repos\UserInterface_AM\Test1\obj\Debug\Test1.pdb
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\bin\Debug\Test1.exe.config
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\bin\Debug\Test1.exe
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\bin\Debug\Test1.pdb
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\bin\Debug\Clients.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\bin\Debug\IKVM.Runtime.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\bin\Debug\IKVM.OpenJDK.Core.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\bin\Debug\IKVM.OpenJDK.Util.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\bin\Debug\IKVM.Runtime.JNI.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\bin\Debug\IKVM.OpenJDK.Security.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\obj\Debug\Test1.csprojAssemblyReference.cache
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\obj\Debug\Test1.csproj.CoreCompileInputs.cache
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\obj\Debug\Test1.csproj.CopyComplete
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\obj\Debug\Test1.exe
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\Test1\obj\Debug\Test1.pdb
