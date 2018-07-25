@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace UserInterface_AM
+﻿namespace UserInterface_AM
 {
     partial class Search
     {
@@ -37,7 +35,7 @@ namespace UserInterface_AM
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.SearchResults = new System.Windows.Forms.ListBox();
+            this.ResultList = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.FileSaveAs = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,7 +50,7 @@ namespace UserInterface_AM
             this.Back.TabIndex = 4;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = false;
-            this.Back.Click += new System.EventHandler(this.button4_Click);
+            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // label1
             // 
@@ -76,7 +74,7 @@ namespace UserInterface_AM
             this.DownloadButton.TabIndex = 8;
             this.DownloadButton.Text = "Download File";
             this.DownloadButton.UseVisualStyleBackColor = false;
-            this.DownloadButton.Click += new System.EventHandler(this.button1_Click);
+            this.DownloadButton.Click += new System.EventHandler(this.DownloadButton_Click);
             // 
             // SearchBar
             // 
@@ -84,7 +82,7 @@ namespace UserInterface_AM
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(249, 22);
             this.SearchBar.TabIndex = 10;
-            this.SearchBar.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.SearchBar.TextChanged += new System.EventHandler(this.SearchBar_TextChanged);
             // 
             // label2
             // 
@@ -108,17 +106,17 @@ namespace UserInterface_AM
             this.SearchButton.Text = "Go";
             this.SearchButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.button2_Click);
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // SearchResults
+            // ResultList
             // 
-            this.SearchResults.FormattingEnabled = true;
-            this.SearchResults.ItemHeight = 16;
-            this.SearchResults.Location = new System.Drawing.Point(12, 191);
-            this.SearchResults.Name = "SearchResults";
-            this.SearchResults.Size = new System.Drawing.Size(631, 212);
-            this.SearchResults.TabIndex = 13;
-            this.SearchResults.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            this.ResultList.FormattingEnabled = true;
+            this.ResultList.ItemHeight = 16;
+            this.ResultList.Location = new System.Drawing.Point(12, 191);
+            this.ResultList.Name = "ResultList";
+            this.ResultList.Size = new System.Drawing.Size(631, 212);
+            this.ResultList.TabIndex = 13;
+            this.ResultList.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -138,7 +136,7 @@ namespace UserInterface_AM
             this.FileSaveAs.Name = "FileSaveAs";
             this.FileSaveAs.Size = new System.Drawing.Size(365, 22);
             this.FileSaveAs.TabIndex = 15;
-            this.FileSaveAs.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.FileSaveAs.TextChanged += new System.EventHandler(this.FileSaveAs_TextChanged);
             // 
             // label4
             // 
@@ -162,7 +160,7 @@ namespace UserInterface_AM
             this.Controls.Add(this.label4);
             this.Controls.Add(this.FileSaveAs);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.SearchResults);
+            this.Controls.Add(this.ResultList);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchBar);
@@ -174,10 +172,6 @@ namespace UserInterface_AM
             this.ResumeLayout(false);
             this.PerformLayout();
 
-            /*
-             * Initialize a map betwwen 
-             */
-            filenameToUrl = new Dictionary<string, string>();
         }
 
         #endregion
@@ -188,7 +182,7 @@ namespace UserInterface_AM
         private System.Windows.Forms.TextBox SearchBar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.ListBox SearchResults;
+        private System.Windows.Forms.ListBox ResultList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox FileSaveAs;
         private System.Windows.Forms.Label label4;

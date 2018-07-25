@@ -16,14 +16,12 @@ namespace UserInterface_AM
     public partial class Search : Form
     {
         public static String searchKeyword;
-        public Dictionary<string, string> filenameToUrl;
-
         public Search()
         {
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Back_Click(object sender, EventArgs e)
         {
             Owner.Show();
             Close();
@@ -37,86 +35,80 @@ namespace UserInterface_AM
         String url;
         String filename;
         //String[] urlList;
-        private void button2_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (ResultList.Items.Count > 0)
+            {
+                ResultList.Items.Clear();
+            }
+            if (SearchBar.Text == "")
             {
                 MessageBox.Show("Please enter keyword");
 
             }
             else
-            { 
+            {
                 object result = Request.Request.search(searchKeyword);
-                if (result.GetType().Equals("".GetType()))
-                {
-                    MessageBox.Show("No such file. Try another file."); // changed
-                }
-                else
+                if ((result.GetType().Equals((new LinkedList()).GetType())))
                 {
                     LinkedList list = (LinkedList)result;
                     while (list.end != null)
                     {
                         SearchResult sr = (SearchResult)list.head.getInfo();
-                        url = "file://localhost/C:\\Users\\" + Environment.UserName + "\\Documents\\GitHub\\AmazingMusic\\Server\\src\\" + sr.getURL(); // changed
+                        url = "file://localhost/C:\\Users\\balis\\Desktop\\AmazingMusic\\Server\\src\\" + sr.getURL();
                         filename = sr.getOriName();
 
-                        filenameToUrl.Add(filename, url);
-
-                        listBox2.Items.Add(filename);
+                        ResultList.Items.Add(url);
 
                         list.delete(0);
                     }
-                }  
+                }
+                else
+                {
+                    MessageBox.Show("No Results found");
+                }
+
+
             }
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void SearchBar_TextChanged(object sender, EventArgs e)
         {
-            searchKeyword = textBox1.Text;
+            searchKeyword = SearchBar.Text;
         }
         String newFileName;
-        private void button1_Click(object sender, EventArgs e)
+        private void DownloadButton_Click(object sender, EventArgs e)
         {
-           if (listBox2.SelectedIndex == -1)
+            if (ResultList.SelectedIndex == -1)
             {
                 MessageBox.Show("Select file to download");
             }
-           else if(newFileName == "")
+            else if (newFileName == "")
             {
                 MessageBox.Show("Name the file you want to download");
             }
-           else
+            else
             {
-                String message = Request.Request.download(downloadURLIndex,newFileName);
+                String message = Request.Request.download(downloadURLIndex, newFileName);
                 MessageBox.Show(message);
             }
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox2.SelectedIndex == -1)
+            if (ResultList.SelectedIndex == -1)
             {
 
             }
             else
             {
-                string mapUrl;
-                // ... Use TryGetValue to safely look up a value in the map.
-                if (filenameToUrl.TryGetValue(listBox2.SelectedItem.ToString(),out mapUrl)) 
-                {
-                    downloadURLIndex = mapUrl;
-                    MessageBox.Show(mapUrl);
-                }
-                else
-                {
-                    MessageBox.Show("debug needed");
-                }
+                downloadURLIndex = ResultList.SelectedItem.ToString();
+                MessageBox.Show(downloadURLIndex);
             }
         }
-        
-        private void textBox2_TextChanged(object sender, EventArgs e)
+
+        private void FileSaveAs_TextChanged(object sender, EventArgs e)
         {
-            newFileName = textBox2.Text;
+            newFileName = FileSaveAs.Text;
 
         }
     }
