@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace UserInterface_AM
+namespace Test1
 {
     class AudioProcess
     {
