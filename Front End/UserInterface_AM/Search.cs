@@ -68,7 +68,7 @@ namespace UserInterface_AM
                     while (list.end != null)
                     {
                         SearchResult sr = (SearchResult)list.head.getInfo();
-                        url = "file://localhost/C:\\Users\\balis\\OneDrive\\Documents\\GitHub\\AmazingMusic\\Server\\" + sr.getURL();
+                        url = "file://localhost/C:\\Users\\인영\\Documents\\GitHub\\AmazingMusic\\Server\\src\\" + sr.getURL();
                         filename = sr.getOriName();
 
                         /*

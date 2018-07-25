@@ -1,0 +1,14 @@
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.csprojAssemblyReference.cache
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\Interop.WMPLib.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\AxInterop.WMPLib.dll
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.csproj.ResolveComReference.cache
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.Edit.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.Form1.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.Main.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.Play.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.Properties.Resources.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.Search.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.Share.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.SignUp.resources
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.csproj.GenerateResource.cache
+C:\Users\인영\Documents\GitHub\AmazingMusic\Front End\UserInterface_AM\obj\Release\UserInterface_AM.csproj.CoreCompileInputs.cache

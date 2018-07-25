@@ -134,7 +134,7 @@ namespace UserInterface_AM
          */
         private void SavePitch_Click(object sender, EventArgs e)
         {
-            double pitchChange = (pitchTrackbar.Value) / 10;//converts Int value from pitchTrackbar to double 
+            double pitchChange = ((double) pitchTrackbar.Value) / 10.0;//converts Int value from pitchTrackbar to double 
             if (EditFile.Text.Contains(" ") || EditFile.Text.Contains("-"))
             {
                 MessageBox.Show("Path cannot contain a space or a \"-\"\nPath: " + input_file);
@@ -157,7 +157,7 @@ namespace UserInterface_AM
          */
         private void SaveTempo_Click(object sender, EventArgs e)
         {
-            double tempoChange = (tempoTrackbar.Value) / 10; //Converts the Int value in tempoTrackbar to a double
+            double tempoChange = ((double) tempoTrackbar.Value) / 10.0; //Converts the Int value in tempoTrackbar to a double
 
             if (EditFile.Text.Contains(" ") || EditFile.Text.Contains("-"))
             {
@@ -171,6 +171,11 @@ namespace UserInterface_AM
                 Close();
                 new Main().Show();
             }
+        }
+
+        private void tempoTrackbar_Scroll(object sender, EventArgs e)
+        {
+
         }
     }
 }
